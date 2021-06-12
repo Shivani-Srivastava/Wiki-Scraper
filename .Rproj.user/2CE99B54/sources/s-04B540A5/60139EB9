@@ -3,7 +3,7 @@
     "path": "D:/R Projects/WiKi-Scraper/dependencies.R",
     "project_path": "dependencies.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "399701727",
     "contents": "",
     "dirty": false,
     "created": 1623465811202.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "6,0",
+        "cursorPosition": "3,57",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1623466808,
+    "lastKnownWriteTime": 1623468223,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1623466808920,
+    "last_content_update": 1623468223823,
     "read_only": false,
     "read_only_alternatives": []
 }

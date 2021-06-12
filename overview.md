@@ -2,7 +2,7 @@
 
 **Wikipedia Text Scraper**
 
-Wikipedia text scraper is based on standard R libraries and get the text data for you in downloadable text format.
+Wikipedia text scraper is based on standard R libraries and get the data for you in downloadable text format.
 
 ------
 
