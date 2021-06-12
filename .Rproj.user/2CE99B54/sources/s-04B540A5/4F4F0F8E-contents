@@ -1,28 +1,14 @@
-wiki_scrape_text <- function(url){
-  
-  isb0 = read_html(url)
-  a0 = html_nodes(isb0, 'p')         # text only within paras
-  a01 = as.character(a0)
-  
-  # cleanup and print
-  a1 = a01 %>% 
-    
-    # drop html junk
-    str_replace_all("\n"," ") %>%
-    str_replace_all("<.*?>", "") %>%
-    
-    # collapse into one long string
-    str_c(sep=" ", collapse="\n\n") #%>% 
-  
-  # for display with newline.
-  #cat()  # Also for downloadable.
-  
-  return(a1)  
-} # func ends
+require("wikipediatrend")
+require("ggplot2")
 
+## UI inputs
+search_term1 = "Elon_Musk"  # UI
+search_term2 = "Tesla,_Inc." # UI. Have NA as a categ
 
+start_date = "2018-01-01" # UI in yyyy-mm-dd format
+end_date =  "2021-01-01" # UI in yyyy-mm-dd format
 
-
+## func def
 build_wiki_trend <- function(search_term1 = "Elon Musk", 
                              search_term2 = NULL,
                              start_date = "2018-01-01", 
@@ -35,14 +21,24 @@ build_wiki_trend <- function(search_term1 = "Elon Musk",
   
   # build 2nd DF
   if (is.na(search_term1))
-  { 
+    { 
     df = df1; next } else 
-    {
+      {
       df2 = wp_trend(search_term2, from = start_date, to = end_date)
       df = rbind(df1, df2) 
-    }
+      }
+
+  p <- ggplot(df) + 
+    geom_line(aes(x = date, y = views, 
+                  colour = article)) +
+    scale_colour_manual(values = c("red", "blue"))      
   
-      
-  
+  plot(p)  # display
   
   return(df) } # func ends
+
+## test-drive
+system.time({
+  df = build_wiki_trend(search_term1, search_term2, start_date, end_date)
+})  # 0.8s
+

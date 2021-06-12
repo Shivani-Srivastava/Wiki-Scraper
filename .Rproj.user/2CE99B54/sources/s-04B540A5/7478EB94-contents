@@ -21,5 +21,28 @@ shinyServer(function(input,output,session){
     }
   )
   
+  #----Wiki Trends
+ observeEvent(input$show,{
+    
+   x1 <- build_wiki_trend(search_term1 = input$search_1,
+                     search_term2 = input$search_2,
+                     start_date = input$st_dt,
+                     end_date = input$end_dt)
+   output$t_plot <- renderPlot({
+     p <- ggplot(x1) + 
+       geom_line(aes(x = date, y = views, 
+                     colour = article)) +
+       scale_colour_manual(values = c("red", "blue")) 
+     p
+   })
+   output$t_df <- renderDataTable({
+     #req(t_df())
+     x1
+   })
+   
+ })
+   
+
+
   
 })
