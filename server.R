@@ -38,6 +38,7 @@ shinyServer(function(input,output,session){
    output$t_df <- renderDataTable({
      #req(t_df())
      DT::datatable({x1},
+                   server = FALSE,
      extensions = 'Buttons',
 
                             options = list(
