@@ -39,6 +39,8 @@ shinyUI(fluidPage(
                plotOutput("t_plot"),
                hr(),
                h5("Trends Dataframe"),
+               downloadButton("dwnld2","Download Data"),
+
                DT::dataTableOutput("t_df")
                ),id = "tabselected"
       
