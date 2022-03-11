@@ -50,7 +50,7 @@ shinyServer(function(input,output,session){
                                 buttons = c('copy', 'csv', 'excel')
                             ),
 
-                            class = "display"
+                            class = "display")
    })
    
    output$dwnld2 <- downloadHandler(
