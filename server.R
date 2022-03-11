@@ -40,6 +40,15 @@ shinyServer(function(input,output,session){
      x1
    })
    
+   output$dwnld2 <- downloadHandler(
+    filename = function(){
+      paste("search-trends-", Sys.Date(), ".txt", sep = "")
+    },
+    content = function(file) {
+      writeLines(paste(x1, collapse = ", "), file)
+      # write.table(paste(text,collapse=", "), file,col.names=FALSE)
+    }
+  )
  })
    
 
