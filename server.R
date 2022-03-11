@@ -37,7 +37,20 @@ shinyServer(function(input,output,session){
    })
    output$t_df <- renderDataTable({
      #req(t_df())
-     x1
+     DT::datatable({x1},
+     extensions = 'Buttons',
+
+                            options = list(
+                                paging = TRUE,
+                                searching = TRUE,
+                                fixedColumns = TRUE,
+                                autoWidth = TRUE,
+                                ordering = TRUE,
+                                dom = 'tB',
+                                buttons = c('copy', 'csv', 'excel')
+                            ),
+
+                            class = "display"
    })
    
    output$dwnld2 <- downloadHandler(
