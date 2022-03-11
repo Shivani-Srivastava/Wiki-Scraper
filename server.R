@@ -37,29 +37,15 @@ shinyServer(function(input,output,session){
    })
    output$t_df <- renderDataTable({
      #req(t_df())
-     DT::datatable({x1},
-                   server = FALSE,
-     extensions = 'Buttons',
-
-                            options = list(
-                                paging = TRUE,
-                                searching = TRUE,
-                                fixedColumns = TRUE,
-                                autoWidth = TRUE,
-                                ordering = TRUE,
-                                dom = 'tB',
-                                buttons = c('copy', 'csv', 'excel')
-                            ),
-
-                            class = "display")
+     x1
    })
    
    output$dwnld2 <- downloadHandler(
     filename = function(){
-      paste("search-trends-", Sys.Date(), ".txt", sep = "")
+      paste("search-trends-", Sys.Date(), ".csv", sep = "")
     },
     content = function(file) {
-      writeLines(paste(x1, collapse = ", "), file)
+      write.csv(x1, file)
       # write.table(paste(text,collapse=", "), file,col.names=FALSE)
     }
   )
