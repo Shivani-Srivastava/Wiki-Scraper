@@ -1,4 +1,12 @@
 library(dplyr)
+library(shiny)
+library(rvest)
+library(magrittr)
+library(stringr)
+library(DT)
+library(wikipediatrend)
+library(ggplot2)
+
 shinyUI(fluidPage(
   
   title = "Wiki Scraper App",
