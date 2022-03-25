@@ -6,6 +6,7 @@ library(stringr)
 library(DT)
 library(wikipediatrend)
 library(ggplot2)
+library(markdown)
 
 shinyUI(fluidPage(
   
